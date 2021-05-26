@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "92435450943",
+    "project_id": "youwill-39665",
+    "storage_bucket": "youwill-39665.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92435450943:android:71a4d0b6989cb2547cbc8a",
+        "android_client_info": {
+          "package_name": "com.kangaroos.youwill"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92435450943-nl18uem37091jp08h1qj2uvd3dpsrb41.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kangaroos.youwill",
+            "certificate_hash": "92b8afbe5ef9262b397667e366317eb40514e186"
+          }
+        },
+        {
+          "client_id": "92435450943-8b1p0cmqd5q3upip420blcojdopvj7sl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-AuRfKVawgHLL8NPvE4aF_TGPlyxc2-I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92435450943-8b1p0cmqd5q3upip420blcojdopvj7sl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
