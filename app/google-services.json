@@ -1,20 +1,20 @@
 {
   "project_info": {
-    "project_number": "92435450943",
-    "project_id": "youwill-39665",
-    "storage_bucket": "youwill-39665.appspot.com"
+    "project_number": "911679109781",
+    "project_id": "youwill-ab07b",
+    "storage_bucket": "youwill-ab07b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:92435450943:android:71a4d0b6989cb2547cbc8a",
+        "mobilesdk_app_id": "1:911679109781:android:4d4c42e7025f8af2c1b99c",
         "android_client_info": {
           "package_name": "com.kangaroos.youwill"
         }
       },
       "oauth_client": [
         {
-          "client_id": "92435450943-nl18uem37091jp08h1qj2uvd3dpsrb41.apps.googleusercontent.com",
+          "client_id": "911679109781-r25gptn8thjottmkfm8nenq2j8pnqdoc.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.kangaroos.youwill",
@@ -22,20 +22,20 @@
           }
         },
         {
-          "client_id": "92435450943-8b1p0cmqd5q3upip420blcojdopvj7sl.apps.googleusercontent.com",
+          "client_id": "911679109781-ougs8hpa1v52va53j60s30j5e43bgpkn.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC-AuRfKVawgHLL8NPvE4aF_TGPlyxc2-I"
+          "current_key": "AIzaSyA3ZDTzW45Xw6hPnpbz9wvZ8YEzflma4Jg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "92435450943-8b1p0cmqd5q3upip420blcojdopvj7sl.apps.googleusercontent.com",
+              "client_id": "911679109781-ougs8hpa1v52va53j60s30j5e43bgpkn.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
