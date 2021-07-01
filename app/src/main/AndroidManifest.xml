@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.YouWill">
+        <activity android:name=".LetterChoice"></activity>
+        <activity android:name=".LetterFirstInfo" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,9 +21,7 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".Will" />
         <activity android:name=".MyPage" />
-        <activity android:name=".Login">
-
-        </activity>
+        <activity android:name=".Login" />
         <activity android:name=".MainActivity" />
     </application>
 
