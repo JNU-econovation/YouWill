@@ -2,6 +2,7 @@ package com.kangaroos.youwill;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.os.Bundle;
@@ -23,10 +24,10 @@ public class LetterChoice extends AppCompatActivity {
         button_sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent intent = new Intent(getApplicationContext(), LetterWrite.class);
+                startActivity(intent);
             }
         });
-
     }
 
 }
