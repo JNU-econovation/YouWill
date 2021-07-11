@@ -12,6 +12,7 @@
         <activity android:name=".Healing"></activity>
         <activity android:name=".LetterChoice" />
         <activity android:name=".LetterFirstInfo" />
+        <activity android:name=".LetterWrite"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +21,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".Will" />
+        <activity android:name=".WillFirstInfo" />
+        <activity android:name=".WillWrite"/>
+
+
         <activity android:name=".MyPage" />
         <activity android:name=".Login" />
         <activity android:name=".MainActivity" />

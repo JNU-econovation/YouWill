@@ -1,7 +1,5 @@
-package com.kangaroos.youwill;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+package com.kangaroos.youwill;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,17 +9,19 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.ramotion.circlemenu.CircleMenuView;
 
-
-public class LetterFirstInfo extends AppCompatActivity {
+public class WillFirstInfo extends AppCompatActivity {
 
     Button button_main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_letter_first_info);
+        setContentView(R.layout.activity_will_first_info);
 
         button_main = findViewById(R.id.button_main);
         ImageView imageView1 = (ImageView)findViewById(R.id.imageview1);
@@ -30,43 +30,25 @@ public class LetterFirstInfo extends AppCompatActivity {
         ImageView imageView4 = (ImageView)findViewById(R.id.imageview4);
         ImageView imageView5 = (ImageView)findViewById(R.id.imageview5);
 
+        TextView textView = (TextView)findViewById(R.id.textview1);
+
         imageView1.setImageResource(R.drawable.image1);
         imageView2.setImageResource(R.drawable.image2);
         imageView3.setImageResource(R.drawable.image3);
         imageView4.setImageResource(R.drawable.image4);
         imageView5.setImageResource(R.drawable.image5);
-        TextView textView = (TextView)findViewById(R.id.textview1);
 
         button_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), LetterChoice.class);
+                Intent intent = new Intent(getApplicationContext(), WillWrite.class);
                 startActivity(intent);
             }
         });
 
+
         final CircleMenuView menu = findViewById(R.id.circle_menu);
         menu.setEventListener(new CircleMenuView.EventListener() {
-            @Override
-            public void onMenuOpenAnimationStart(@NonNull CircleMenuView view) {
-                Log.d("D", "onMenuOpenAnimationStart");
-            }
-
-            @Override
-            public void onMenuOpenAnimationEnd(@NonNull CircleMenuView view) {
-                Log.d("D", "onMenuOpenAnimationEnd");
-            }
-
-            @Override
-            public void onMenuCloseAnimationStart(@NonNull CircleMenuView view) {
-                Log.d("D", "onMenuCloseAnimationStart");
-            }
-
-            @Override
-            public void onMenuCloseAnimationEnd(@NonNull CircleMenuView view) {
-                Log.d("D", "onMenuCloseAnimationEnd");
-            }
-
             @Override
             public void onButtonClickAnimationStart(@NonNull CircleMenuView view, int index) {
                 switch (index){
@@ -82,8 +64,6 @@ public class LetterFirstInfo extends AppCompatActivity {
                         intent = new Intent(getApplicationContext(), WillFirstInfo.class);
                         startActivity(intent);
                         break;
-
-
                     case 3:
                         intent = new Intent(getApplicationContext(), Healing.class);
                         startActivity(intent);
@@ -92,30 +72,7 @@ public class LetterFirstInfo extends AppCompatActivity {
 
                 Log.d("D", "onButtonClickAnimationStart| index: " + index);
             }
-
-            @Override
-            public void onButtonClickAnimationEnd(@NonNull CircleMenuView view, int index) {
-                Log.d("D", "onButtonClickAnimationEnd| index: " + index);
-            }
-
-            @Override
-            public boolean onButtonLongClick(@NonNull CircleMenuView view, int index) {
-                Log.d("D", "onButtonLongClick| index: " + index);
-                return true;
-            }
-
-            @Override
-            public void onButtonLongClickAnimationStart(@NonNull CircleMenuView view, int index) {
-                Log.d("D", "onButtonLongClickAnimationStart| index: " + index);
-            }
-
-            @Override
-            public void onButtonLongClickAnimationEnd(@NonNull CircleMenuView view, int index) {
-                Log.d("D", "onButtonLongClickAnimationEnd| index: " + index);
-            }
         });
 
-
     }
-
 }
