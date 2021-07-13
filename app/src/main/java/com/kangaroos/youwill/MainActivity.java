@@ -51,9 +51,11 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case 2:
-                        intent = new Intent(getApplicationContext(), Will.class);
+                        intent = new Intent(getApplicationContext(), WillFirstInfo.class);
                         startActivity(intent);
                         break;
+
+
                     case 3:
                         intent = new Intent(getApplicationContext(), Healing.class);
                         startActivity(intent);

@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".Healing">
 
+<<<<<<< HEAD
+=======
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Healing"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.101" />
+
+>>>>>>> ded8ae4d9899c27dd8dea0dc076704f843ebb5f0
     <com.ramotion.circlemenu.CircleMenuView
         android:id="@+id/circle_menu"
         android:layout_width="190dp"
@@ -21,6 +37,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+<<<<<<< HEAD
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
@@ -64,4 +81,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView"
         tools:layout_editor_absoluteX="322dp" />
+=======
+        app:layout_constraintVertical_bias="0.99"
+        app:distance="60dp"/>
+
+>>>>>>> ded8ae4d9899c27dd8dea0dc076704f843ebb5f0
 </androidx.constraintlayout.widget.ConstraintLayout>
