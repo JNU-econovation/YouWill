@@ -1,0 +1,92 @@
+package com.kangaroos.youwill;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+
+import com.ramotion.circlemenu.CircleMenuView;
+
+import java.util.ArrayList;
+
+public class Healing extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_healing);
+
+        Button button_recent = findViewById(R.id.button_recent);
+        button_recent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment healingFragment = new HealingFragment();
+                Bundle bundle=new Bundle();
+                ArrayList<HealingItem> list = new ArrayList<>();
+                for(int i=0;i<50;i++){
+                    list.add(new HealingItem("최근어쩌구저쩌","내용","날짜", 1));
+                }
+                bundle.putParcelableArrayList("recentList",list);
+                healingFragment.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, healingFragment).commit();
+            }
+        });
+
+        Button button_popular = findViewById(R.id.button_popular);
+        button_popular.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment healingFragment = new HealingFragment();
+                Bundle bundle=new Bundle();
+                ArrayList<HealingItem> list = new ArrayList<>();
+                for(int i=0;i<50;i++){
+                    list.add(new HealingItem("인기 글 제목","내용","날짜", 1));
+                }
+                bundle.putParcelableArrayList("recentList",list);
+                healingFragment.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, healingFragment).commit();
+            }
+        });
+
+        Button button_write = findViewById(R.id.button_write);
+        button_write.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), HealingWrite.class);
+                startActivity(intent);
+            }
+        });
+
+        final CircleMenuView menu = findViewById(R.id.circle_menu);
+        menu.setEventListener(new CircleMenuView.EventListener() {
+            @Override
+            public void onButtonClickAnimationStart(@NonNull CircleMenuView view, int index) {
+                switch (index){
+                    case 0:
+                        Intent intent = new Intent(getApplicationContext(), MyPage.class);
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        intent = new Intent(getApplicationContext(), LetterFirstInfo.class);
+                        startActivity(intent);
+                        break;
+                    case 2:
+                        intent = new Intent(getApplicationContext(), Will.class);
+                        startActivity(intent);
+                        break;
+                    case 3:
+                        intent = new Intent(getApplicationContext(), Healing.class);
+                        startActivity(intent);
+                        break;
+                }
+
+                Log.d("D", "onButtonClickAnimationStart| index: " + index);
+            }
+        });
+    }
+}
