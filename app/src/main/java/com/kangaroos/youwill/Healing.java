@@ -27,11 +27,7 @@ public class Healing extends AppCompatActivity {
             public void onClick(View v) {
                 Fragment healingFragment = new HealingFragment();
                 Bundle bundle=new Bundle();
-                ArrayList<HealingItem> list = new ArrayList<>();
-                for(int i=0;i<50;i++){
-                    list.add(new HealingItem("최근어쩌구저쩌","내용","날짜", 1));
-                }
-                bundle.putParcelableArrayList("recentList",list);
+                bundle.putString("button", "recent");
                 healingFragment.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, healingFragment).commit();
             }
@@ -43,11 +39,7 @@ public class Healing extends AppCompatActivity {
             public void onClick(View v) {
                 Fragment healingFragment = new HealingFragment();
                 Bundle bundle=new Bundle();
-                ArrayList<HealingItem> list = new ArrayList<>();
-                for(int i=0;i<50;i++){
-                    list.add(new HealingItem("인기 글 제목","내용","날짜", 1));
-                }
-                bundle.putParcelableArrayList("recentList",list);
+                bundle.putString("button","popular");
                 healingFragment.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, healingFragment).commit();
             }

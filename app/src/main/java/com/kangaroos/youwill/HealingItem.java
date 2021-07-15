@@ -9,7 +9,10 @@ public class HealingItem implements Parcelable {
     String date;
     int number;
 
-    public HealingItem(String title, String content, String date, int number){
+    public HealingItem() {
+    }
+
+    public HealingItem(String title, String content, String date, int number) {
         this.title = title;
         this.content = content;
         this.date = date;
@@ -22,8 +25,6 @@ public class HealingItem implements Parcelable {
         date = in.readString();
         number = in.readInt();
     }
-
-
 
     public String getTitle() {
         return title;
