@@ -3,11 +3,9 @@ package com.kangaroos.youwill;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-<<<<<<< Updated upstream
 import android.os.Bundle;
 import android.app.Activity;
-=======
->>>>>>> Stashed changes
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;

@@ -24,11 +24,7 @@
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".WillFirstInfo" />
-<<<<<<< Updated upstream
         <activity android:name=".WillWrite" />
-=======
-        <activity android:name=".WillWrite"/>
->>>>>>> Stashed changes
         <activity android:name=".MyPage" />
         <activity android:name=".Login" />
         <activity android:name=".MainActivity" />

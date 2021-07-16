@@ -1,30 +1,20 @@
-<<<<<<< Updated upstream
 
-package com.kangaroos.youwill;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-=======
 package com.kangaroos.youwill;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
->>>>>>> Stashed changes
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-<<<<<<< Updated upstream
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.ramotion.circlemenu.CircleMenuView;
-=======
->>>>>>> Stashed changes
 
 public class WillFirstInfo extends AppCompatActivity {
 
@@ -36,7 +26,7 @@ public class WillFirstInfo extends AppCompatActivity {
         setContentView(R.layout.activity_will_first_info);
 
         button_main = findViewById(R.id.button_main);
-<<<<<<< Updated upstream
+
         ImageView imageView1 = (ImageView)findViewById(R.id.imageview1);
         ImageView imageView2 = (ImageView)findViewById(R.id.imageview2);
         ImageView imageView3 = (ImageView)findViewById(R.id.imageview3);
@@ -51,12 +41,12 @@ public class WillFirstInfo extends AppCompatActivity {
         imageView4.setImageResource(R.drawable.image4);
         imageView5.setImageResource(R.drawable.image5);
 
-=======
+
         ImageView imageView = (ImageView)findViewById(R.id.imageview1);
-        TextView textView = (TextView)findViewById(R.id.textview1);
+
 
         imageView.setImageResource(R.drawable.image1);
->>>>>>> Stashed changes
+
         button_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +55,6 @@ public class WillFirstInfo extends AppCompatActivity {
             }
         });
 
-<<<<<<< Updated upstream
 
         final CircleMenuView menu = findViewById(R.id.circle_menu);
         menu.setEventListener(new CircleMenuView.EventListener() {
@@ -96,8 +85,8 @@ public class WillFirstInfo extends AppCompatActivity {
 
     }
 }
-=======
-    }
 
-}
->>>>>>> Stashed changes
+
+
+
+

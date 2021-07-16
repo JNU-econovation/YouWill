@@ -8,24 +8,14 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-<<<<<<< Updated upstream
 
-=======
 import android.widget.ImageView;
 import android.widget.TextView;
->>>>>>> Stashed changes
 
 
 public class LetterWrite extends AppCompatActivity {
     Button button_sub;
 
-    @Override
-<<<<<<< Updated upstream
-    protected void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_letter_write);
-
-=======
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_letter_write);
@@ -42,7 +32,6 @@ public class LetterWrite extends AppCompatActivity {
                 startActivity(intent);
             }
         });
->>>>>>> Stashed changes
 
     }
 

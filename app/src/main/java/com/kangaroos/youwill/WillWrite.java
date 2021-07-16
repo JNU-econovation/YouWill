@@ -3,50 +3,17 @@ package com.kangaroos.youwill;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-<<<<<<< Updated upstream
+
+import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-
-
-public class WillWrite extends AppCompatActivity {
-    Button button_sub;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_will_write);
-
-
-    }
-
-}
-=======
-import android.graphics.Color;
-import android.os.Bundle;
-import android.app.Activity;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-
 
 import jp.wasabeef.richeditor.RichEditor;
 
-
-
-import android.graphics.Color;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import jp.wasabeef.richeditor.RichEditor;
 
 public class WillWrite extends AppCompatActivity {
 
@@ -295,8 +262,3 @@ public class WillWrite extends AppCompatActivity {
     }
 }
 
-
-
-
-
->>>>>>> Stashed changes
