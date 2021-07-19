@@ -19,10 +19,10 @@
         app:layout_constraintVertical_bias="0.022" />
 
     <Button
-        android:id="@+id/button_logout"
+        android:id="@+id/button_move_my_post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="logout"
+        android:text="내가 작성한 글 "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,14 +30,14 @@
         app:layout_constraintVertical_bias="0.262" />
 
     <Button
-        android:id="@+id/button_exit"
+        android:id="@+id/button_move_my_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="탈퇴"
+        android:text="나의 정보"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_logout"
+        app:layout_constraintTop_toBottomOf="@+id/button_move_my_post"
         app:layout_constraintVertical_bias="0.124" />
 
 
