@@ -36,10 +36,14 @@ public class LoginActivity extends AppCompatActivity {
         mEmailText = findViewById(R.id.email_et);
         mPasswordText = findViewById(R.id.password_edt);
 
+        //이미 로그인이 되어있다면 메인페이지로 바로 이동
+        if(firebaseAuth.getCurrentUser() != null){
+            finish();
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        }
 
         //가입 버튼이 눌리면
         mResigettxt.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(View v) {
                 //intent함수를 통해 register액티비티 함수를 호출한다.

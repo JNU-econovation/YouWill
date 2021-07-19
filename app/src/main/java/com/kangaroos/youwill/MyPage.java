@@ -2,6 +2,7 @@ package com.kangaroos.youwill;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,41 +10,30 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MyPage extends AppCompatActivity {
-    private FirebaseAuth mAuth ;
-    Button buttonLogout, buttonExit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_page);
 
-        mAuth = FirebaseAuth.getInstance();
-        buttonLogout = (Button) findViewById(R.id.button_logout);
-        buttonExit = (Button) findViewById(R.id.button_exit);
+        Button button_move_to_my_info = findViewById(R.id.button_move_my_info);
+        Button button_move_to_my_post = findViewById(R.id.button_move_my_post);
 
-        buttonLogout.setOnClickListener(this::onClick);
-        buttonExit.setOnClickListener(this::onClick);
-    }
-
-    private void signOut() {
-        FirebaseAuth.getInstance().signOut();
-    }
-
-    private void revokeAccess() {
-        mAuth.getCurrentUser().delete();
-    }
-
-
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.button_logout:
-                signOut();
-                finishAffinity();
-                break;
-            case R.id.button_exit:
-                revokeAccess();
-                finishAffinity();
-                break;
-        }
+        button_move_to_my_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyPage.this, MyPageDetail.class);
+                intent.putExtra("mypage", "info");
+                startActivity(intent);
+            }
+        });
+        button_move_to_my_post.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyPage.this, MyPageDetail.class);
+                intent.putExtra("mypage", "post");
+                startActivity(intent);
+            }
+        });
     }
 }
