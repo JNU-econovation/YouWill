@@ -64,7 +64,7 @@ public class Healing extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case 1:
-                        intent = new Intent(getApplicationContext(), LetterFirstInfo.class);
+                        intent = new Intent(getApplicationContext(), LetterChoice.class);
                         startActivity(intent);
                         break;
                     case 2:
