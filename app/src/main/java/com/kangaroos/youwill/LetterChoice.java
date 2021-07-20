@@ -15,19 +15,19 @@ import android.widget.TextView;
 
 public class LetterChoice extends AppCompatActivity {
 
-    Button button_main;
+    Button button_write;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_letter_choice);
 
-        button_main = findViewById(R.id.button_main);
+        button_write = findViewById(R.id.button_write);
         ImageView imageView = (ImageView)findViewById(R.id.imageview1);
         TextView textView = (TextView)findViewById(R.id.textview1);
 
-        imageView.setImageResource(R.drawable.image1);
-        button_main.setOnClickListener(new View.OnClickListener() {
+
+        button_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), LetterWrite.class);

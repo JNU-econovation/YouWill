@@ -11,6 +11,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import jp.wasabeef.richeditor.RichEditor;
 
@@ -19,6 +29,8 @@ public class WillWrite extends AppCompatActivity {
 
     private RichEditor mEditor;
     private TextView mPreview;
+    private String content;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +38,7 @@ public class WillWrite extends AppCompatActivity {
         setContentView(R.layout.activity_will_write);
         mEditor = (RichEditor) findViewById(R.id.editor);
         mEditor.setEditorHeight(200);
-        mEditor.setEditorFontSize(30);
+        mEditor.setEditorFontSize(20);
         mEditor.setEditorFontColor(Color.BLACK);
         //mEditor.setEditorBackgroundColor(Color.BLUE);
         //mEditor.setBackgroundColor(Color.BLUE);
@@ -36,13 +48,25 @@ public class WillWrite extends AppCompatActivity {
         mEditor.setPlaceholder("자신의 이야기를 시작해보세요...");
         //mEditor.setInputEnabled(false);
 
-        mPreview = (TextView) findViewById(R.id.preview);
+        content = "";
         mEditor.setOnTextChangeListener(new RichEditor.OnTextChangeListener() {
             @Override
             public void onTextChange(String text) {
-                mPreview.setText(text);
+                content = text;
             }
         });
+
+        Date currentTime = new Date(System.currentTimeMillis());
+        SimpleDateFormat dayFormat = new SimpleDateFormat("dd", Locale.getDefault());
+        SimpleDateFormat monthFormat = new SimpleDateFormat("MM", Locale.getDefault());
+        SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.getDefault());
+
+        String year = yearFormat.format(currentTime);
+        String month = monthFormat.format(currentTime);
+        String day = dayFormat.format(currentTime);
+
+        String today = year + "년 " + month + "월 " + day + "일 ";
+        String date = year + month + day;
 
         findViewById(R.id.action_undo).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,7 +171,7 @@ public class WillWrite extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                mEditor.setTextColor(isChanged ? Color.BLACK : Color.RED);
+                mEditor.setTextColor(isChanged ? Color.BLACK : Color.GREEN);
                 isChanged = !isChanged;
             }
         });
@@ -157,7 +181,7 @@ public class WillWrite extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                mEditor.setTextBackgroundColor(isChanged ? Color.TRANSPARENT : Color.YELLOW);
+                mEditor.setTextBackgroundColor(isChanged ? Color.TRANSPARENT : Color.LTGRAY);
                 isChanged = !isChanged;
             }
         });
@@ -259,6 +283,21 @@ public class WillWrite extends AppCompatActivity {
                 mEditor.insertTodo();
             }
         });
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = firebaseDatabase.getReference();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        Button button_submit = findViewById(R.id.button_will_submit);
+        button_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                databaseReference.child("Will").push().child(uid).setValue(new WillItem(content,date));
+                Toast.makeText(getApplicationContext(),"유서가 저장되었습니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
-}
+
+    }
+
 

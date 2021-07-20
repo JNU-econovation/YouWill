@@ -13,7 +13,6 @@
         <activity android:name=".HealingWrite" />
         <activity android:name=".Healing" />
         <activity android:name=".LetterChoice" />
-        <activity android:name=".LetterFirstInfo" />
         <activity android:name=".LetterWrite" />
         <activity android:name=".LoginActivity">
             <intent-filter>
