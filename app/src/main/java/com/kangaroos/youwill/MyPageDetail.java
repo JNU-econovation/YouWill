@@ -19,6 +19,7 @@ public class MyPageDetail extends AppCompatActivity {
 
         Intent intent = getIntent();
         String mypageDetail = intent.getExtras().getString("mypage");
+
         if(mypageDetail.equals("info")){
             Fragment myInfoFragment = new MyInfoFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, myInfoFragment).commit();
