@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -23,11 +24,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MyPostFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class MyPostFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -43,15 +39,6 @@ public class MyPostFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MyPostFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static MyPostFragment newInstance(String param1, String param2) {
         MyPostFragment fragment = new MyPostFragment();
         Bundle args = new Bundle();
@@ -78,6 +65,7 @@ public class MyPostFragment extends Fragment {
         TextView textView_will = rootView.findViewById(R.id.textView_will);
         TextView textView_letter = rootView.findViewById(R.id.textView_letter);
         TextView textView_healing = rootView.findViewById(R.id.textView_healing);
+
         String TAG = "mypost";
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
@@ -88,10 +76,12 @@ public class MyPostFragment extends Fragment {
         ArrayList<PostItem> list = new ArrayList<>();
         MyPostAdapter adapter = new MyPostAdapter(list);
 
+
         //유서 클릭 이벤트
         textView_will.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 databaseReference.child("Will").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -117,6 +107,7 @@ public class MyPostFragment extends Fragment {
         textView_letter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 databaseReference.child("Letter").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -150,6 +141,7 @@ public class MyPostFragment extends Fragment {
 
 
         recyclerView.setAdapter(adapter);
+
         return rootView;
     }
 }

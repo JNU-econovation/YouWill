@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class HealingPost extends AppCompatActivity {
 
@@ -13,7 +16,12 @@ public class HealingPost extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_healing_post);
 
-            Intent intent = getIntent();
+        Intent intent = getIntent();
+
+        String title = intent.getExtras().getString("title");
+        String content = intent.getExtras().getString("content");
+        String date = intent.getExtras().getString("date");
+        int likesCount = intent.getExtras().getInt("likesCount");
 
             String title = intent.getExtras().getString("title");
             String content = intent.getExtras().getString("content");
@@ -29,5 +37,10 @@ public class HealingPost extends AppCompatActivity {
             textView_content.setText(content);
             textView_date.setText(date);
             textView_number.setText(String.valueOf(likesCount));
+          
+        textView_title.setText(title);
+        textView_content.setText(content);
+        textView_date.setText(date);
+        textView_number.setText(String.valueOf(likesCount));
     }
 }

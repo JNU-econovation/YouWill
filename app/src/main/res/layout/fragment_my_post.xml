@@ -8,6 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,6 +16,7 @@
 
         <TextView
             android:id="@+id/textView_will"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="유서"
@@ -40,5 +42,36 @@
 
 </LinearLayout>
 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="유서"
+            android:textColor="#020202"
+            android:paddingRight="20dp"
+            android:paddingLeft="10dp"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/textView_letter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="편지"
+            android:textColor="#020202"
+            android:paddingRight="20dp"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/textView_healing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="힐링"
+            android:textColor="#020202"
+            android:textSize="20dp"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+</LinearLayout>
 
 </FrameLayout>
