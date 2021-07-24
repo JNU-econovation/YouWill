@@ -28,7 +28,6 @@
         <activity android:name=".WillFirstInfo" />
         <activity android:name=".WillWrite" />
         <activity android:name=".MyPage" />
-        <activity android:name=".Login" />
         <activity android:name=".MainActivity" />
     </application>
 
