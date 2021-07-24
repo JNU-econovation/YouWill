@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -16,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -27,9 +27,16 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class HealingFragment extends Fragment {
     public static final String TAG = "healingItemTest";
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference databaseReference = firebaseDatabase.getReference();
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String uid = user.getUid();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -84,19 +91,35 @@ public class HealingFragment extends Fragment {
             category = getArguments().getString("button");
         }
 
+        Comparator<HealingItem> comparator = new Comparator<HealingItem>() {
+            @Override
+            public int compare(HealingItem o1, HealingItem o2) {
+                if (o1.likesCount < o2.likesCount) {
+                    return 1;
+                }
+                if (o1.likesCount > o2.likesCount) {
+                    return -1;
+                }
+                return 0;
+            }
+        };
+
         //최신순으로 정렬
         if (category.equals("recent")) {
+            finalList.clear();
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    finalList.clear();
                     for (DataSnapshot fileSnapshot : snapshot.getChildren()) {
-                        HealingItem item = fileSnapshot.child(uid).getValue(HealingItem.class);
-                        finalList.add(0, new HealingItem(item.title, item.content, item.date, item.number));
-                        Log.d(TAG, item.title);
-                        Log.d(TAG, item.content);
-                        Log.d(TAG, item.date);
-                        Log.d(TAG, String.valueOf(item.number));
-
+                        HealingItem item = fileSnapshot.getValue(HealingItem.class);
+                        if (item != null) {
+                            finalList.add(0, new HealingItem(item.title, item.content, item.date, item.likes, item.likesCount, item.id, item.uid));
+                            Log.d(TAG, item.title);
+                            Log.d(TAG, item.content);
+                            Log.d(TAG, item.date);
+                            Log.d(TAG, String.valueOf(item.likesCount));
+                        }
                     }
                     adapter.notifyDataSetChanged();
                 }
@@ -108,33 +131,34 @@ public class HealingFragment extends Fragment {
             });
         }
 
-        /*
+
         //인기순으로 어뎁터 넣기
-        if(category.equals("popular")){
-            Query popularHealingPostQuery = databaseReference.child(uid).orderByChild("number");
-            popularHealingPostQuery.addValueEventListener(new ValueEventListener() {
+        if (category.equals("popular") || category.equals("")) {
+            databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                        HealingItem item = postSnapshot.getValue(HealingItem.class);
-                        finalList.add(0, new HealingItem(item.title, item.content, item.date, item.number));
-                        Log.d(TAG, item.title);
-                        Log.d(TAG, item.content);
-                        Log.d(TAG, item.date);
-                        Log.d(TAG, String.valueOf(item.number));
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    finalList.clear();
+                    for (DataSnapshot fileSnapshot : snapshot.getChildren()) {
+                        HealingItem item = fileSnapshot.getValue(HealingItem.class);
+                        if (item != null) {
+                            finalList.add(0, new HealingItem(item.title, item.content, item.date, item.likes, item.likesCount, item.id, item.uid));
+                            Log.d(TAG, item.title);
+                            Log.d(TAG, item.content);
+                            Log.d(TAG, item.date);
+                            Log.d(TAG, String.valueOf(item.likesCount));
+                        }
                     }
-                    adpater.notifyDataSetChanged();
+                    Collections.sort(finalList, comparator);
+                    adapter.notifyDataSetChanged();
                 }
 
                 @Override
-                public void onCancelled(DatabaseError databaseError) {
-                    // Getting Post failed, log a message
-                    Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
-                    // ...
+                public void onCancelled(@NonNull DatabaseError error) {
+
                 }
             });
         }
-    */
+
         Log.d(TAG, "view");
 
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerview);
@@ -147,8 +171,12 @@ public class HealingFragment extends Fragment {
             @Override
             public void onItemClick(HealingItemAdapter.ViewHolder holder, View view, int position) {
                 HealingItem item = adapter.getItem(position);
+
                 Intent intent = new Intent(getContext(), HealingPost.class);
-                intent.putExtra("post", item);
+                intent.putExtra("title", finalList.get(position).getTitle());
+                intent.putExtra("content", finalList.get(position).getContent());
+                intent.putExtra("date", finalList.get(position).getDate());
+                intent.putExtra("likesCount", finalList.get(position).getLikesCount());
                 startActivity(intent);
             }
         });
