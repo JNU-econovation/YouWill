@@ -86,7 +86,7 @@
 
 
             <EditText
-                android:id="@+id/editTextTextEmailAddress"
+                android:id="@+id/edittext_recipient_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
@@ -103,23 +103,45 @@
                 android:textSize="15dp"
                 android:textColor="#000000"
                 android:textStyle="bold"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginLeft="30dp"/>
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="달력 라이브러리 필요"
-                android:textSize="10dp"
-                android:layout_gravity="center"  />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <DatePicker
+
+                    android:id="@+id/datePicker"
+
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentEnd="true"
+
+                    android:layout_alignParentRight="true"
+
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="74dp"
+                    android:layout_marginRight="74dp"
+                    android:layout_marginBottom="0dp"
+                    android:calendarViewShown="false"
+                    android:datePickerMode="spinner" />
+
+
+
+            </RelativeLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="편지지 디자인을 선택해주세요."
                 android:textSize="15dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:textColor="#000000"

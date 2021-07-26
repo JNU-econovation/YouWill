@@ -16,8 +16,9 @@ public class WillItem  {
     }
 
     protected WillItem(Parcel in) {
-        content = in.readString();
         date = in.readString();
+        content = in.readString();
+
     }
 
 

@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import jp.wasabeef.richeditor.RichEditor;
 
 
@@ -25,11 +30,16 @@ public class LetterWrite extends AppCompatActivity {
 
     private RichEditor mEditor;
     private TextView mPreview;
+    private String content;
+    private String send_date;
+    private String recipient_number;
+    private int paper_type;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_will_write);
+        setContentView(R.layout.activity_letter_write);
         mEditor = (RichEditor) findViewById(R.id.editor);
         mEditor.setEditorHeight(200);
         mEditor.setEditorFontSize(20);
@@ -39,14 +49,21 @@ public class LetterWrite extends AppCompatActivity {
         //mEditor.setBackgroundResource(R.drawable.bg);
         mEditor.setPadding(10, 10, 10, 10);
         //mEditor.setBackground("https://raw.githubusercontent.com/wasabeef/art/master/chip.jpg");
-        mEditor.setPlaceholder("자신의 이야기를 시작해보세요...");
+        mEditor.setPlaceholder("   자신의 이야기를 시작해보세요...");
         //mEditor.setInputEnabled(false);
 
+
+        Intent intent = getIntent();
+        String recipient_number = intent.getExtras().getString("recipient_number");
+        String send_date = intent.getExtras().getString("send_date");
+
+        paper_type = 0;
+        content = "";
 
         mEditor.setOnTextChangeListener(new RichEditor.OnTextChangeListener() {
             @Override
             public void onTextChange(String text) {
-
+                content = text;
             }
         });
 
@@ -263,6 +280,33 @@ public class LetterWrite extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mEditor.insertTodo();
+            }
+        });
+
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = firebaseDatabase.getReference();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        Date currentTime = new Date(System.currentTimeMillis());
+        SimpleDateFormat dayFormat = new SimpleDateFormat("dd", Locale.getDefault());
+        SimpleDateFormat monthFormat = new SimpleDateFormat("MM", Locale.getDefault());
+        SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.getDefault());
+
+        String year = yearFormat.format(currentTime);
+        String month = monthFormat.format(currentTime);
+        String day = dayFormat.format(currentTime);
+
+        String today = year + "년 " + month + "월 " + day + "일 ";
+        String write_date = year + month + day;
+
+        Button button_submit = findViewById(R.id.button_letter_submit);
+
+        button_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                databaseReference.child("Letter").push().child(uid).setValue(new LetterItem(recipient_number, write_date, send_date, paper_type, content));
+                Toast.makeText(getApplicationContext(),"편지가 저장되었습니다.", Toast.LENGTH_SHORT).show();
             }
         });
 

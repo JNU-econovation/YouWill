@@ -45,7 +45,7 @@ public class WillWrite extends AppCompatActivity {
         //mEditor.setBackgroundResource(R.drawable.bg);
         mEditor.setPadding(10, 10, 10, 10);
         //mEditor.setBackground("https://raw.githubusercontent.com/wasabeef/art/master/chip.jpg");
-        mEditor.setPlaceholder("자신의 이야기를 시작해보세요...");
+        mEditor.setPlaceholder("   자신의 이야기를 시작해보세요...");
         //mEditor.setInputEnabled(false);
 
         content = "";
@@ -55,7 +55,8 @@ public class WillWrite extends AppCompatActivity {
                 content = text;
             }
         });
-
+        
+        //작성하는 현재시각
         Date currentTime = new Date(System.currentTimeMillis());
         SimpleDateFormat dayFormat = new SimpleDateFormat("dd", Locale.getDefault());
         SimpleDateFormat monthFormat = new SimpleDateFormat("MM", Locale.getDefault());
@@ -292,8 +293,16 @@ public class WillWrite extends AppCompatActivity {
         button_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                databaseReference.child("Will").push().child(uid).setValue(new WillItem(content,date));
+                databaseReference.child("Will").push().child(uid).setValue(new WillItem(date, content));
                 Toast.makeText(getApplicationContext(),"유서가 저장되었습니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        Button button_will_mypage = findViewById(R.id.button_will_mypage);
+        button_will_mypage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MyPage.class);
+                startActivity(intent);
             }
         });
     }

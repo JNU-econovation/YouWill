@@ -42,7 +42,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/undo" />
+                    android:src="@drawable/undo"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_redo"
@@ -50,7 +51,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/redo" />
+                    android:src="@drawable/redo"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_bold"
@@ -58,7 +60,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/bold" />
+                    android:src="@drawable/bold"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_italic"
@@ -66,7 +69,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/italic" />
+                    android:src="@drawable/italic"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_subscript"
@@ -74,7 +78,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/subscript" />
+                    android:src="@drawable/subscript"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_superscript"
@@ -82,7 +87,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/superscript" />
+                    android:src="@drawable/superscript"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_strikethrough"
@@ -90,7 +96,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/strikethrough" />
+                    android:src="@drawable/strikethrough"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_underline"
@@ -98,7 +105,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/underline" />
+                    android:src="@drawable/underline"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_heading1"
@@ -106,7 +114,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/h1" />
+                    android:src="@drawable/h1"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_heading2"
@@ -114,7 +123,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/h2" />
+                    android:src="@drawable/h2"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_heading3"
@@ -122,7 +132,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/h3" />
+                    android:src="@drawable/h3"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_heading4"
@@ -130,7 +141,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/h4" />
+                    android:src="@drawable/h4"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_heading5"
@@ -138,7 +150,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/h5" />
+                    android:src="@drawable/h5"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_heading6"
@@ -146,7 +159,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/h6" />
+                    android:src="@drawable/h6"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_txt_color"
@@ -154,7 +168,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/txt_color" />
+                    android:src="@drawable/txt_color"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_bg_color"
@@ -162,7 +177,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/bg_color" />
+                    android:src="@drawable/bg_color"
+                    android:scaleType="centerCrop"/>
 
 
                 <ImageButton
@@ -171,7 +187,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/indent" />
+                    android:src="@drawable/indent"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_outdent"
@@ -179,7 +196,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/outdent" />
+                    android:src="@drawable/outdent"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_align_left"
@@ -187,7 +205,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/justify_left" />
+                    android:src="@drawable/justify_left"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_align_center"
@@ -195,7 +214,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/justify_center" />
+                    android:src="@drawable/justify_center"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_align_right"
@@ -203,7 +223,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/justify_right" />
+                    android:src="@drawable/justify_right"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_insert_bullets"
@@ -211,7 +232,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/bullets" />
+                    android:src="@drawable/bullets"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_insert_numbers"
@@ -219,7 +241,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/numbers" />
+                    android:src="@drawable/numbers"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_blockquote"
@@ -227,7 +250,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/blockquote" />
+                    android:src="@drawable/blockquote"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_insert_image"
@@ -235,7 +259,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/insert_image" />
+                    android:src="@drawable/insert_image"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_insert_audio"
@@ -243,7 +268,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/music" />
+                    android:src="@drawable/music"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_insert_video"
@@ -251,7 +277,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/video" />
+                    android:src="@drawable/video"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_insert_youtube"
@@ -259,7 +286,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/youtube" />
+                    android:src="@drawable/youtube"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_insert_link"
@@ -267,7 +295,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@drawable/insert_link" />
+                    android:src="@drawable/insert_link"
+                    android:scaleType="centerCrop"/>
 
                 <ImageButton
                     android:id="@+id/action_insert_checkbox"
@@ -275,7 +304,8 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:contentDescription="@null"
-                    android:src="@android:drawable/checkbox_on_background" />
+                    android:src="@android:drawable/checkbox_on_background"
+                    android:scaleType="centerCrop"/>
 
             </LinearLayout>
         </HorizontalScrollView>
