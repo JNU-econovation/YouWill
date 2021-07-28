@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="150dp"
     android:background="@drawable/healing_item_background">
 
     <TextView
@@ -20,52 +20,52 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.037" />
 
-    <TextView
-        android:id="@+id/textView_content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <jp.wasabeef.richeditor.RichEditor
+        android:id="@+id/editor_healing_item"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
         android:layout_marginTop="40dp"
-        android:text="내용"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_title"
-        app:layout_constraintVertical_bias="0.011" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="4dp"
         android:text="날짜"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.122"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_content" />
+        app:layout_constraintTop_toBottomOf="@+id/editor_healing_item" />
 
     <ImageView
         android:id="@+id/button_like"
         android:layout_width="16dp"
         android:layout_height="19dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/likeblank"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.767"
+        app:layout_constraintHorizontal_bias="0.785"
         app:layout_constraintStart_toEndOf="@+id/textView_date"
-        app:layout_constraintTop_toBottomOf="@+id/textView_content" />
+        app:layout_constraintTop_toBottomOf="@+id/editor_healing_item" />
 
     <TextView
         android:id="@+id/textView_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="4dp"
         android:text="n"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_like" />
+        app:layout_constraintStart_toEndOf="@+id/button_like"
+        app:layout_constraintTop_toBottomOf="@+id/editor_healing_item"
+        app:layout_constraintVertical_bias="0.285" />
 </androidx.constraintlayout.widget.ConstraintLayout>

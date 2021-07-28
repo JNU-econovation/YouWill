@@ -6,28 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".LetterPost">
 
-    <ImageView
-        android:id="@+id/imageView_letter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bg" />
 
     <jp.wasabeef.richeditor.RichEditor
-        android:id="@+id/editor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/textView_letter_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/textView_letter_content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/imageView_letter"
+        android:id="@+id/editor_letter"
+        android:layout_width="0dp"
+        android:layout_height="440dp"
+        android:layout_marginTop="88dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,5 +24,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView_letter" />
+        app:layout_constraintTop_toBottomOf="@+id/editor_letter" />
 </androidx.constraintlayout.widget.ConstraintLayout>

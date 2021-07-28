@@ -6,8 +6,6 @@ import android.content.Intent;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.app.Activity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -36,7 +34,7 @@ public class WillWrite extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_will_write);
-        mEditor = (RichEditor) findViewById(R.id.editor);
+        mEditor = (RichEditor) findViewById(R.id.editor_letter);
         mEditor.setEditorHeight(200);
         mEditor.setEditorFontSize(20);
         mEditor.setEditorFontColor(Color.BLACK);
@@ -55,7 +53,7 @@ public class WillWrite extends AppCompatActivity {
                 content = text;
             }
         });
-        
+
         //작성하는 현재시각
         Date currentTime = new Date(System.currentTimeMillis());
         SimpleDateFormat dayFormat = new SimpleDateFormat("dd", Locale.getDefault());
@@ -294,7 +292,7 @@ public class WillWrite extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 databaseReference.child("Will").push().child(uid).setValue(new WillItem(date, content));
-                Toast.makeText(getApplicationContext(),"유서가 저장되었습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "유서가 저장되었습니다.", Toast.LENGTH_SHORT).show();
             }
         });
         Button button_will_mypage = findViewById(R.id.button_will_mypage);
@@ -307,6 +305,6 @@ public class WillWrite extends AppCompatActivity {
         });
     }
 
-    }
+}
 
 
