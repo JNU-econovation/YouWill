@@ -30,12 +30,7 @@ public class LetterPost extends AppCompatActivity {
 
         textView_content.setText(content);
         textView_date.setText(date);
-        editor.setOnTextChangeListener(new RichEditor.OnTextChangeListener() {
-            @Override
-            public void onTextChange(String text) {
-                textView_content.setText(content);
-            }
-        });
+        editor.setHtml(content);
         //이미지 뷰 셋 코드 추가해야 함.
     }
 }

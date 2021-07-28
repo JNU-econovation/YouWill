@@ -20,8 +20,6 @@ public class LetterItem  {
         this.send_date = send_date;
         this.paper_type = paper_type;
         this.content = content;
-
-
     }
 
     protected LetterItem(Parcel in) {

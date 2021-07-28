@@ -33,10 +33,5 @@ public class HealingPost extends AppCompatActivity {
         textView_content.setText(content);
         textView_date.setText(date);
         textView_number.setText(String.valueOf(likesCount));
-
-        textView_title.setText(title);
-        textView_content.setText(content);
-        textView_date.setText(date);
-        textView_number.setText(String.valueOf(likesCount));
     }
 }
