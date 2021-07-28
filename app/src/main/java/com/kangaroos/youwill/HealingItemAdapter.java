@@ -1,6 +1,7 @@
 package com.kangaroos.youwill;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import jp.wasabeef.richeditor.RichEditor;
+
 public class HealingItemAdapter extends RecyclerView.Adapter<HealingItemAdapter.ViewHolder> {
 
     private ArrayList<HealingItem> mData = null;
@@ -54,7 +57,7 @@ public class HealingItemAdapter extends RecyclerView.Adapter<HealingItemAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView textView_title;
-        TextView textView_content;
+        RichEditor textView_content;
         TextView textView_date;
         TextView textView_number;
         ImageView button_like;
@@ -64,7 +67,7 @@ public class HealingItemAdapter extends RecyclerView.Adapter<HealingItemAdapter.
             super(itemView);
 
             textView_title = itemView.findViewById(R.id.textView_title);
-            textView_content = itemView.findViewById(R.id.textView_content);
+            textView_content = itemView.findViewById(R.id.editor_healing_item);
             textView_date = itemView.findViewById(R.id.textView_date);
             textView_number = itemView.findViewById(R.id.textView_number);
             button_like = itemView.findViewById(R.id.button_like);
@@ -101,9 +104,10 @@ public class HealingItemAdapter extends RecyclerView.Adapter<HealingItemAdapter.
     public void onBindViewHolder(@NonNull HealingItemAdapter.ViewHolder holder, int position) {
         HealingItem item = new HealingItem(mData.get(position).getTitle(), mData.get(position).getContent(), mData.get(position).getDate(), mData.get(position).getLikes(), mData.get(position).getLikesCount() + 1, mData.get(position).id, mData.get(position).uid);
         holder.textView_title.setText(mData.get(position).getTitle());
-        holder.textView_content.setText(mData.get(position).getContent());
+        holder.textView_content.setHtml(mData.get(position).getContent());
         holder.textView_number.setText(String.valueOf(mData.get(position).likesCount));
         holder.textView_date.setText(mData.get(position).getDate());
+
         if (mData.get(position).getLikes().containsKey(uid)) {
             holder.button_like.setImageResource(R.drawable.filled);
         } else {

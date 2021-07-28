@@ -91,7 +91,7 @@ public class MyPostFragment extends Fragment {
                     Log.d(TAG, fileSnapshot.toString());
                     WillItem item = fileSnapshot.child(uid).getValue(WillItem.class);
                     if (item != null) {
-                        list.add(0, new PostItem(item.date, item.content));
+                        list.add(0, new PostItem("", item.date));
                         willList.add(0, new WillItem(item.date, item.content));
                     }
                 }
@@ -118,7 +118,7 @@ public class MyPostFragment extends Fragment {
                             Log.d(TAG, fileSnapshot.toString());
                             WillItem item = fileSnapshot.child(uid).getValue(WillItem.class);
                             if (item != null) {
-                                list.add(0, new PostItem(item.date, item.content));
+                                list.add(0, new PostItem("", item.date));
                                 willList.add(0, new WillItem(item.date, item.content));
                             }
                         }
@@ -146,8 +146,8 @@ public class MyPostFragment extends Fragment {
                             Log.d(TAG, fileSnapshot.toString());
                             LetterItem item = fileSnapshot.child(uid).getValue(LetterItem.class);
                             if (item != null) {
-                                list.add(0, new PostItem(item.write_date, item.content));
-                                letterList.add(0, new LetterItem(item.recipient_number,item.write_date,item.send_date,item.paper_type, item.content));
+                                list.add(0, new PostItem("", item.write_date));
+                                letterList.add(0, new LetterItem(item.recipient_number, item.write_date, item.send_date, item.paper_type, item.content));
                             }
                         }
                         adapter.notifyDataSetChanged();
@@ -174,7 +174,7 @@ public class MyPostFragment extends Fragment {
                             HealingItem item = fileSnapshot.getValue(HealingItem.class);
                             if (item.uid.equals(uid)) {
                                 Log.d("post", "ㄹㅣ스트 들어옴");
-                                list.add(0, new PostItem(item.content, item.date));
+                                list.add(0, new PostItem(item.title, item.date));
                                 healingList.add(0, new HealingItem(item.getTitle(), item.getContent(), item.getDate(), item.getLikes(), item.getLikesCount(), item.id, item.uid));
                             }
                         }

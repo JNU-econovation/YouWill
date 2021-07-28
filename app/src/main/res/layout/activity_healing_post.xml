@@ -8,36 +8,42 @@
 
     <TextView
         android:id="@+id/textView_post_title"
-        android:layout_width="239dp"
+        android:layout_width="0dp"
         android:layout_height="27dp"
         android:layout_marginTop="50dp"
         android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/editor_healing"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <jp.wasabeef.richeditor.RichEditor
+        android:id="@+id/editor_healing"
+        android:layout_width="0dp"
+        android:layout_height="440dp"
+        android:layout_marginTop="104dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView_post_content"
-        android:layout_width="299dp"
-        android:layout_height="333dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_post_title" />
 
     <TextView
         android:id="@+id/textView_post_date"
         android:layout_width="230dp"
         android:layout_height="26dp"
+        android:layout_marginTop="36dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_post_content" />
+        app:layout_constraintTop_toBottomOf="@+id/editor_healing" />
 
     <TextView
         android:id="@+id/textView_post_number"
         android:layout_width="213dp"
         android:layout_height="20dp"
+        android:layout_marginTop="32dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import jp.wasabeef.richeditor.RichEditor;
+
 public class HealingPost extends AppCompatActivity {
 
     @Override
@@ -25,12 +27,12 @@ public class HealingPost extends AppCompatActivity {
         int likesCount = intent.getExtras().getInt("likesCount");
 
         TextView textView_title = findViewById(R.id.textView_post_title);
-        TextView textView_content = findViewById(R.id.textView_post_content);
+        RichEditor editor = findViewById(R.id.editor_healing);
         TextView textView_date = findViewById(R.id.textView_post_date);
         TextView textView_number = findViewById(R.id.textView_post_number);
 
         textView_title.setText(title);
-        textView_content.setText(content);
+        editor.setHtml(content);
         textView_date.setText(date);
         textView_number.setText(String.valueOf(likesCount));
     }

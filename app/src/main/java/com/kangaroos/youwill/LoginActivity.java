@@ -165,16 +165,16 @@ public class LoginActivity extends AppCompatActivity {
                             Log.d("google", "signInWithCredential: success");
                             final FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                             User googleUser = new User(firebaseUser.getEmail(), firebaseUser.getDisplayName(), firebaseUser.getUid());
-
+                            String finaluid = firebaseUser.getUid();
                             databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    if (!dataSnapshot.exists()) {
-                                        databaseReference.child(finalUid).setValue(googleUser, new DatabaseReference.CompletionListener() {
+                                    if (dataSnapshot.exists()) {
+                                        databaseReference.child(finaluid).setValue(googleUser, new DatabaseReference.CompletionListener() {
                                             @Override
                                             public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
                                                 if (databaseError == null) {
-                                                    //DLog.d("DB에러없음");
+                                                    Log.d("google","DB에러없음");
                                                     Toast.makeText(LoginActivity.this, "DB에러없음", Toast.LENGTH_LONG).show();
                                                 } else {
                                                     Log.w("google", "DB 에러 발생");
@@ -211,9 +211,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     class User {
-        String uid;
-        String name;
-        String email;
+        public String uid;
+        public String name;
+        public String email;
 
         public User(String email, String name, String uid) {
             this.email = email;

@@ -3,7 +3,7 @@ package com.kangaroos.youwill;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class WillItem  {
+public class WillItem {
     String date;
     String content;
 
@@ -20,7 +20,6 @@ public class WillItem  {
         content = in.readString();
 
     }
-
 
     public String getContent() {
         return content;
