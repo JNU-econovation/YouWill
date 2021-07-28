@@ -177,6 +177,7 @@ public class HealingFragment extends Fragment {
                 intent.putExtra("content", finalList.get(position).getContent());
                 intent.putExtra("date", finalList.get(position).getDate());
                 intent.putExtra("likesCount", finalList.get(position).getLikesCount());
+                intent.putExtra("pushId", finalList.get(position).getId());
                 startActivity(intent);
             }
         });

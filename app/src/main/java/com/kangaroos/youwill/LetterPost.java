@@ -27,6 +27,7 @@ public class LetterPost extends AppCompatActivity {
 
         textView_date.setText(date);
         editor.setHtml(content);
+        editor.setInputEnabled(false);
         //이미지 뷰 셋 코드 추가해야 함.
     }
 }

@@ -189,7 +189,7 @@ public class MyPostFragment extends Fragment {
             }
         });
 
-        RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView_mypost);
+        RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView_myletterbox);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         recyclerView.setAdapter(adapter);
@@ -221,6 +221,7 @@ public class MyPostFragment extends Fragment {
                     intent.putExtra("content", healingList.get(position).getContent());
                     intent.putExtra("date", healingList.get(position).getDate());
                     intent.putExtra("likesCount", healingList.get(position).getLikesCount());
+                    intent.putExtra("pushId", healingList.get(position).getId());
                     startActivity(intent);
                     return;
                 }

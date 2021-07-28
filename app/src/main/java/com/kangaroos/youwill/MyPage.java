@@ -18,6 +18,7 @@ public class MyPage extends AppCompatActivity {
 
         Button button_move_to_my_info = findViewById(R.id.button_move_my_info);
         Button button_move_to_my_post = findViewById(R.id.button_move_my_post);
+        Button button_move_to_letterbox = findViewById(R.id.button_move_letterbox);
 
         button_move_to_my_info.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +33,15 @@ public class MyPage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MyPage.this, MyPageDetail.class);
                 intent.putExtra("mypage", "post");
+                startActivity(intent);
+            }
+        });
+
+        button_move_to_letterbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyPage.this, MyPageDetail.class);
+                intent.putExtra("mypage", "letterbox");
                 startActivity(intent);
             }
         });

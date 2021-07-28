@@ -40,5 +40,16 @@
         app:layout_constraintTop_toBottomOf="@+id/button_move_my_post"
         app:layout_constraintVertical_bias="0.124" />
 
+    <Button
+        android:id="@+id/button_move_letterbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="편지함"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_move_my_info"
+        app:layout_constraintVertical_bias="0.171" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

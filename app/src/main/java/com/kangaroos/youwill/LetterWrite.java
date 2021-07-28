@@ -316,7 +316,7 @@ public class LetterWrite extends AppCompatActivity {
                             HashMap<Object, String> hm = (HashMap<Object, String>) fileSnapshot.getValue();
 
                             if (hm.get("email").equals(recipient_number)) {
-                                databaseReference.child("LetterBox").child(hm.get("uid")).setValue(new LetterItem(recipient_number, write_date, send_date, paper_type, content));
+                                databaseReference.child("LetterBox").push().child(hm.get("uid")).setValue(new LetterItem(recipient_number, write_date, send_date, paper_type, content));
                             }
                         }
                     }

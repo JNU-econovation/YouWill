@@ -16,6 +16,7 @@ public class MyPageDetail extends AppCompatActivity {
         setContentView(R.layout.activity_my_page_detail);
         Button button_my_post = findViewById(R.id.button_my_post);
         Button button_my_info = findViewById(R.id.button_my_info);
+        Button button_my_letterbox = findViewById(R.id.button_my_letterbox);
 
         Intent intent = getIntent();
         String mypageDetail = intent.getExtras().getString("mypage");
@@ -23,6 +24,11 @@ public class MyPageDetail extends AppCompatActivity {
         if(mypageDetail.equals("info")){
             Fragment myInfoFragment = new MyInfoFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, myInfoFragment).commit();
+        }
+
+        if (mypageDetail.equals("letterbox")) {
+            Fragment myLetterBoxFragment = new MyLetterBoxFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, myLetterBoxFragment).commit();
         }
 
         button_my_info.setOnClickListener(new View.OnClickListener() {
@@ -38,6 +44,14 @@ public class MyPageDetail extends AppCompatActivity {
             public void onClick(View v) {
                 Fragment myPostFragment = new MyPostFragment();
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, myPostFragment).commit();
+            }
+        });
+
+        button_my_letterbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment myLetterBoxFragment = new MyLetterBoxFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, myLetterBoxFragment).commit();
             }
         });
     }
