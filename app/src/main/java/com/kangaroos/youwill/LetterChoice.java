@@ -30,10 +30,6 @@ public class LetterChoice extends AppCompatActivity {
 
         button_write = findViewById(R.id.button_write);
         EditText editText = findViewById(R.id.edittext_recipient_number);
-        DatePicker datePicker = findViewById(R.id.datePicker);
-
-
-        datePicker.init(datePicker.getYear(),datePicker.getMonth()+1,datePicker.getDayOfMonth(),mOnDateChangedListener);
 
         button_write.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,16 +45,5 @@ public class LetterChoice extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
-    DatePicker.OnDateChangedListener mOnDateChangedListener = new DatePicker.OnDateChangedListener(){
-        @Override
-        public void onDateChanged(DatePicker datePicker, int yy, int mm, int dd) {
-            Log.d("date", "변화");
-            mDay[0] = yy;
-            mDay[1] = mm;
-            mDay[2] = dd;
-        }
-    };
 }

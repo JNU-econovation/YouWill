@@ -92,7 +92,7 @@ public class MyPostFragment extends Fragment {
                     WillItem item = fileSnapshot.child(uid).getValue(WillItem.class);
                     if (item != null) {
                         list.add(0, new PostItem("", item.date));
-                        willList.add(0, new WillItem(item.date, item.content));
+                        willList.add(0, new WillItem(item.date, item.content, item.id));
                     }
                 }
                 adapter.notifyDataSetChanged();
@@ -119,7 +119,7 @@ public class MyPostFragment extends Fragment {
                             WillItem item = fileSnapshot.child(uid).getValue(WillItem.class);
                             if (item != null) {
                                 list.add(0, new PostItem("", item.date));
-                                willList.add(0, new WillItem(item.date, item.content));
+                                willList.add(0, new WillItem(item.date, item.content, item.id));
                             }
                         }
                         adapter.notifyDataSetChanged();
@@ -202,6 +202,7 @@ public class MyPostFragment extends Fragment {
                     Intent intent = new Intent(getContext(), WillPost.class);
                     intent.putExtra("content", willList.get(position).getContent());
                     intent.putExtra("date", willList.get(position).getDate());
+                    intent.putExtra("pushId", willList.get(position).getId());
                     startActivity(intent);
                     return;
                 }
