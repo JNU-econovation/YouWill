@@ -35,14 +35,6 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-
-        //액션 바 등록하기
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("회원가입");
-
-        actionBar.setDisplayHomeAsUpEnabled(true); //뒤로가기버튼
-        actionBar.setDisplayShowHomeEnabled(true); //홈 아이콘
-
         //파이어베이스 접근 설정
         // user = firebaseAuth.getCurrentUser();
         firebaseAuth =  FirebaseAuth.getInstance();
@@ -66,7 +58,6 @@ public class RegisterActivity extends AppCompatActivity {
                 final String email = mEmailText.getText().toString().trim();
                 String pwd = mPasswordText.getText().toString().trim();
                 String pwdcheck = mPasswordcheckText.getText().toString().trim();
-
 
                 if (pwd.equals(pwdcheck)) {
                     Log.d(TAG, "등록 버튼 " + email + " , " + pwd);

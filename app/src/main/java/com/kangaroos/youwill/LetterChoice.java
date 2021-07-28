@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.app.Activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -18,8 +19,9 @@ import android.widget.TextView;
 public class LetterChoice extends AppCompatActivity {
 
     Button button_write;
-
-
+    final int[] mDay = new int[3];
+    String number;
+    String sdate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,37 +32,33 @@ public class LetterChoice extends AppCompatActivity {
         EditText editText = findViewById(R.id.edittext_recipient_number);
         DatePicker datePicker = findViewById(R.id.datePicker);
 
-        String number = editText.getText().toString();
 
-        final int[] mDay = new int[3];
-
-
-        DatePicker.OnDateChangedListener mOnDateChangedListener = new DatePicker.OnDateChangedListener(){
-
-            @Override
-
-            public void onDateChanged(DatePicker datePicker, int yy, int mm, int dd) {
-
-                mDay[0] = yy;
-
-                mDay[1] = mm;
-
-                mDay[2] = dd;
-
-            }
-
-        };
         datePicker.init(datePicker.getYear(),datePicker.getMonth()+1,datePicker.getDayOfMonth(),mOnDateChangedListener);
-        String sdate = mDay[0]+""+mDay[1]+1+""+mDay[2];
+
         button_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                number = editText.getText().toString();
+                Log.d("datew", String.valueOf(number));
+                sdate = mDay[0]+""+mDay[1]+""+mDay[2];
+
                 Intent intent = new Intent(LetterChoice.this, LetterWrite.class);
                 intent.putExtra("recipient_number",number);
                 intent.putExtra("send_date",sdate);
+                Log.d("date", "intent");
                 startActivity(intent);
             }
         });
-    }
 
+
+    }
+    DatePicker.OnDateChangedListener mOnDateChangedListener = new DatePicker.OnDateChangedListener(){
+        @Override
+        public void onDateChanged(DatePicker datePicker, int yy, int mm, int dd) {
+            Log.d("date", "변화");
+            mDay[0] = yy;
+            mDay[1] = mm;
+            mDay[2] = dd;
+        }
+    };
 }

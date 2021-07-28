@@ -78,6 +78,7 @@ public class MyPostFragment extends Fragment {
         ArrayList<PostItem> list = new ArrayList<>();
         ArrayList<HealingItem> healingList = new ArrayList<>();
         ArrayList<WillItem> willList = new ArrayList<>();
+        ArrayList<LetterItem> letterList = new ArrayList<>();
 
         MyPostAdapter adapter = new MyPostAdapter(list);
 
@@ -132,7 +133,7 @@ public class MyPostFragment extends Fragment {
             }
         });
 
-        //편지 클릭 이벤트트
+        //편지 클릭 이벤트
         textView_letter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,10 +144,10 @@ public class MyPostFragment extends Fragment {
                         list.clear();
                         for (DataSnapshot fileSnapshot : snapshot.getChildren()) {
                             Log.d(TAG, fileSnapshot.toString());
-                            WillItem item = fileSnapshot.child(uid).getValue(WillItem.class);
+                            LetterItem item = fileSnapshot.child(uid).getValue(LetterItem.class);
                             if (item != null) {
-                                list.add(0, new PostItem(item.date, item.content));
-                                willList.add(0, new WillItem(item.date, item.content));
+                                list.add(0, new PostItem(item.write_date, item.content));
+                                letterList.add(0, new LetterItem(item.recipient_number,item.write_date,item.send_date,item.paper_type, item.content));
                             }
                         }
                         adapter.notifyDataSetChanged();
@@ -206,11 +207,10 @@ public class MyPostFragment extends Fragment {
                 }
 
                 if (category.equals("Letter")) {
-                    //변경해야 함.
                     Intent intent = new Intent(getContext(), LetterPost.class);
-                    intent.putExtra("content", willList.get(position).getContent());
-                    intent.putExtra("date", willList.get(position).getDate());
-                    intent.putExtra("letterNumber", willList.get(position).getDate());
+                    intent.putExtra("content", letterList.get(position).getContent());
+                    intent.putExtra("date", letterList.get(position).getWrite_date());
+                    intent.putExtra("letterNumber", letterList.get(position).getPaper_type());
                     startActivity(intent);
                     return;
                 }

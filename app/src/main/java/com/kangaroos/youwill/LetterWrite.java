@@ -1,14 +1,24 @@
 package com.kangaroos.youwill;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Activity;
 import android.os.Bundle;
+import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,11 +26,15 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
 
 import jp.wasabeef.richeditor.RichEditor;
@@ -54,8 +68,8 @@ public class LetterWrite extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        String recipient_number = intent.getExtras().getString("recipient_number");
-        String send_date = intent.getExtras().getString("send_date");
+        recipient_number = intent.getExtras().getString("recipient_number");
+        send_date = intent.getExtras().getString("send_date");
 
         paper_type = 0;
         content = "";
@@ -306,11 +320,27 @@ public class LetterWrite extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 databaseReference.child("Letter").push().child(uid).setValue(new LetterItem(recipient_number, write_date, send_date, paper_type, content));
-                Toast.makeText(getApplicationContext(),"편지가 저장되었습니다.", Toast.LENGTH_SHORT).show();
+
+                databaseReference.child("Users").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot fileSnapshot : snapshot.getChildren()) {
+                            HashMap<Object, String> hm = (HashMap<Object, String>) fileSnapshot.getValue();
+
+                            if (hm.get("email").equals(recipient_number)) {
+                                databaseReference.child("LetterBox").child(hm.get("uid")).setValue(new LetterItem(recipient_number, write_date, send_date, paper_type, content));
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                Toast.makeText(getApplicationContext(), "편지가 저장되었습니다.", Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
 }
 
