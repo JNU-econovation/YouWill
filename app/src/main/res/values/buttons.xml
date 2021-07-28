@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="icons">
-        <item>@drawable/user</item>
-        <item>@drawable/letter</item>
-        <item>@drawable/will</item>
-        <item>@drawable/healing</item>
+        <item>@drawable/mypage_black</item>
+        <item>@drawable/letter_black</item>
+        <item>@drawable/will_black</item>
+        <item>@drawable/healing_black</item>
     </array>
     <array name="colors">
-        <item>@android:color/holo_blue_light</item>
+        <item>#748E64</item>
         <item>@android:color/holo_green_dark</item>
-        <item>@android:color/holo_purple</item>
-        <item>@android:color/holo_orange_light</item>
+        <item>#4AC380</item>
+        <item>#87F6B0</item>
     </array>
 </resources>
