@@ -51,6 +51,15 @@ public class HealingWrite extends AppCompatActivity {
         String today = year + "년 " + month + "월 " + day + "일 ";
         String date = year + month + day;
 
+        Button button_healing_mypage = findViewById(R.id.button_healing_mypage);
+        button_healing_mypage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MyPage.class);
+                startActivity(intent);
+            }
+        });
+
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

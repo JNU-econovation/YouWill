@@ -291,7 +291,8 @@ public class WillWrite extends AppCompatActivity {
         button_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                databaseReference.child("Will").push().child(uid).setValue(new WillItem(date, content));
+                String id = databaseReference.child("Will").push().getKey();
+                databaseReference.child("Will").child(id).child(uid).setValue(new WillItem(date, content,id));
                 Toast.makeText(getApplicationContext(), "유서가 저장되었습니다.", Toast.LENGTH_SHORT).show();
             }
         });

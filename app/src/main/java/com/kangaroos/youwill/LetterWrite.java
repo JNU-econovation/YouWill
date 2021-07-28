@@ -42,6 +42,7 @@ public class LetterWrite extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_letter_write);
+        Button button_mypage = findViewById(R.id.button_letter_mypage);
         mEditor = (RichEditor) findViewById(R.id.editor_letter);
         mEditor.setEditorHeight(200);
         mEditor.setEditorFontSize(20);
@@ -54,6 +55,13 @@ public class LetterWrite extends AppCompatActivity {
         mEditor.setPlaceholder("   자신의 이야기를 시작해보세요...");
         //mEditor.setInputEnabled(false);
 
+        button_mypage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MyPage.class);
+                startActivity(intent);
+            }
+        });
 
         Intent intent = getIntent();
         recipient_number = intent.getExtras().getString("recipient_number");
