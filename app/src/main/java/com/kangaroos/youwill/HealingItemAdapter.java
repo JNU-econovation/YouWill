@@ -107,7 +107,8 @@ public class HealingItemAdapter extends RecyclerView.Adapter<HealingItemAdapter.
         holder.textView_content.setHtml(mData.get(position).getContent());
         holder.textView_number.setText(String.valueOf(mData.get(position).likesCount));
         holder.textView_date.setText(mData.get(position).getDate());
-
+        holder.textView_content.setBackgroundColor(Color.parseColor("#F1F1F5"));
+        holder.textView_content.setInputEnabled(false);
         if (mData.get(position).getLikes().containsKey(uid)) {
             holder.button_like.setImageResource(R.drawable.filled);
         } else {
