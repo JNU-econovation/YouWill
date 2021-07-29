@@ -31,6 +31,7 @@
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,9 +52,9 @@
 
     <ImageView
         android:id="@+id/button_like"
-        android:layout_width="16dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="11dp"
         android:background="@drawable/likeblank"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,13 +66,12 @@
         android:id="@+id/textView_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="12dp"
         android:layout_marginBottom="4dp"
+        android:layout_marginRight="10dp"
         android:text="n"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_like"
-        app:layout_constraintTop_toBottomOf="@+id/editor_healing_item"
-        app:layout_constraintVertical_bias="0.285" />
+        app:layout_constraintTop_toBottomOf="@+id/editor_healing_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>

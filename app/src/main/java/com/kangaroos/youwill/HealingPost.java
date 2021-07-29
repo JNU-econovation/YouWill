@@ -51,7 +51,9 @@ public class HealingPost extends AppCompatActivity {
 
         textView_title.setText(title);
         editor.setHtml(content);
-        textView_date.setText(date);
+        String healingDate = date.substring(0,4)+"년 "+date.substring(4,6)+"월 "+date.substring(6,8)+"일";
+        textView_date.setText(healingDate);
+
         textView_number.setText(String.valueOf(likesCount));
         editor.setOnTextChangeListener(new RichEditor.OnTextChangeListener() {
             @Override
