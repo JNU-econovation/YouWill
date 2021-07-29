@@ -117,7 +117,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="300dp"
-                    android:src="@drawable/kangaroo_w">
+                    android:src="@drawable/paper1">
 
                 </ImageView>
                 <RadioButton
@@ -129,7 +129,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="300dp"
-                    android:src="@drawable/kangaroo_y">
+                    android:src="@drawable/paper2">
                 </ImageView>
                 <RadioButton
                     android:layout_marginTop="10dp"
@@ -140,7 +140,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="300dp"
-                    android:src="@drawable/kangaroos_grey">
+                    android:src="@drawable/paper3">
                 </ImageView>
             </RadioGroup>
 

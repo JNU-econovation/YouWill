@@ -41,7 +41,8 @@ public class WillPost extends AppCompatActivity {
         Button button_update = findViewById(R.id.button_will_update);
         Button button_delete = findViewById(R.id.button_will_delete);
 
-        textView_date.setText(date);
+        String healingDate = date.substring(0,4)+"년 "+date.substring(4,6)+"월 "+date.substring(6,8)+"일";
+        textView_date.setText(healingDate);
         editor.setHtml(content);
 
         editor.setOnTextChangeListener(new RichEditor.OnTextChangeListener() {
