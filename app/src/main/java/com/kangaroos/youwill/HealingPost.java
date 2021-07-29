@@ -36,7 +36,6 @@ public class HealingPost extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-
         String title = intent.getExtras().getString("title");
         content = intent.getExtras().getString("content");
         String date = intent.getExtras().getString("date");
@@ -95,7 +94,6 @@ public class HealingPost extends AppCompatActivity {
                     Log.d("TAG", "Healing item is null");
                     return Transaction.success(mutableData);
                 }
-
                 p.content = content;
 
                 mutableData.setValue(p);

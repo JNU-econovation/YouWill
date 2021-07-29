@@ -66,14 +66,67 @@ public class LetterWrite extends AppCompatActivity {
         Intent intent = getIntent();
         recipient_number = intent.getExtras().getString("recipient_number");
         send_date = intent.getExtras().getString("send_date");
+        paper_type = intent.getExtras().getInt("letterNumber");
 
-        paper_type = 0;
+        if(paper_type == 0){
+            mEditor.setBackgroundResource(R.drawable.kangaroo_w);
+        }else if(paper_type == 1){
+            mEditor.setBackgroundResource(R.drawable.kangaroo_y);
+        }else if(paper_type == 2){
+            mEditor.setBackgroundResource(R.drawable.kangaroos_grey);
+        }
+
         content = "";
 
         mEditor.setOnTextChangeListener(new RichEditor.OnTextChangeListener() {
             @Override
             public void onTextChange(String text) {
                 content = text;
+            }
+        });
+
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = firebaseDatabase.getReference();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        Date currentTime = new Date(System.currentTimeMillis());
+        SimpleDateFormat dayFormat = new SimpleDateFormat("dd", Locale.getDefault());
+        SimpleDateFormat monthFormat = new SimpleDateFormat("MM", Locale.getDefault());
+        SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.getDefault());
+
+        String year = yearFormat.format(currentTime);
+        String month = monthFormat.format(currentTime);
+        String day = dayFormat.format(currentTime);
+
+        String today = year + "년 " + month + "월 " + day + "일 ";
+        String write_date = year + month + day;
+
+        Button button_submit = findViewById(R.id.button_letter_submit);
+
+        button_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                databaseReference.child("Letter").push().child(uid).setValue(new LetterItem(recipient_number, write_date, send_date, paper_type, content));
+
+                databaseReference.child("Users").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot fileSnapshot : snapshot.getChildren()) {
+                            HashMap<Object, String> hm = (HashMap<Object, String>) fileSnapshot.getValue();
+
+                            if (hm.get("email").equals(recipient_number)) {
+                                databaseReference.child("LetterBox").push().child(hm.get("uid")).setValue(new LetterItem(recipient_number, write_date, send_date, paper_type, content));
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                Toast.makeText(getApplicationContext(), "편지가 저장되었습니다.", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -290,51 +343,6 @@ public class LetterWrite extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mEditor.insertTodo();
-            }
-        });
-
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-
-        Date currentTime = new Date(System.currentTimeMillis());
-        SimpleDateFormat dayFormat = new SimpleDateFormat("dd", Locale.getDefault());
-        SimpleDateFormat monthFormat = new SimpleDateFormat("MM", Locale.getDefault());
-        SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.getDefault());
-
-        String year = yearFormat.format(currentTime);
-        String month = monthFormat.format(currentTime);
-        String day = dayFormat.format(currentTime);
-
-        String today = year + "년 " + month + "월 " + day + "일 ";
-        String write_date = year + month + day;
-
-        Button button_submit = findViewById(R.id.button_letter_submit);
-
-        button_submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                databaseReference.child("Letter").push().child(uid).setValue(new LetterItem(recipient_number, write_date, send_date, paper_type, content));
-
-                databaseReference.child("Users").addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot fileSnapshot : snapshot.getChildren()) {
-                            HashMap<Object, String> hm = (HashMap<Object, String>) fileSnapshot.getValue();
-
-                            if (hm.get("email").equals(recipient_number)) {
-                                databaseReference.child("LetterBox").push().child(hm.get("uid")).setValue(new LetterItem(recipient_number, write_date, send_date, paper_type, content));
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-                Toast.makeText(getApplicationContext(), "편지가 저장되었습니다.", Toast.LENGTH_SHORT).show();
             }
         });
     }
