@@ -88,7 +88,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:ems="10"
-
                 android:hint="example@example.com"
                 android:inputType="textEmailAddress" />
 
@@ -98,11 +97,55 @@
                 android:text="편지지 디자인을 선택해주세요."
                 android:textSize="15dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:textColor="#000000"
                 android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radio_button_one"
+                    android:layout_marginTop="10dp">
+
+                </RadioButton>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp"
+                    android:src="@drawable/kangaroo_w">
+
+                </ImageView>
+                <RadioButton
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radio_button_two">
+                </RadioButton>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp"
+                    android:src="@drawable/kangaroo_y">
+                </ImageView>
+                <RadioButton
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radio_button_three">
+                </RadioButton>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp"
+                    android:src="@drawable/kangaroos_grey">
+                </ImageView>
+            </RadioGroup>
+
 
             <Button
                 android:id="@+id/button_write"
@@ -110,12 +153,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="50dp"
-
                 android:text="작성하기"
                 android:textColor="#000000"
                 app:backgroundTint="#ACC69F" />
-
-
 
         </LinearLayout>
     </ScrollView>

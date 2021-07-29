@@ -1,7 +1,9 @@
 package com.kangaroos.youwill;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 
 import android.graphics.Color;
@@ -66,6 +68,40 @@ public class WillWrite extends AppCompatActivity {
 
         String today = year + "년 " + month + "월 " + day + "일 ";
         String date = year + month + day;
+
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = firebaseDatabase.getReference();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        Button button_submit = findViewById(R.id.button_will_submit);
+        button_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String id = databaseReference.child("Will").push().getKey();
+                databaseReference.child("Will").child(id).child(uid).setValue(new WillItem(date, content, id));
+                AlertDialog.Builder dlg = new AlertDialog.Builder(WillWrite.this);
+                dlg.setTitle(""); //제목
+                dlg.setMessage("지금 삶이 힘든 당신, 이 세상에 태어난 이상 당신은 모든 걸 매일 누릴 자격이 있어요." + "\n" + "\n" + "대단하지 않은 하루가 지나고, 또 별 것 아닌 하루가 온다 해도 인생은 살 가치가 있습니다." + "\n" + "\n" + "후회가득한 과거와 불안하기만 한 미래 때문에 지금을 망치지 마세요." + "\n" + "\n" + "오늘을 살아가세요. 눈이 부시게."); // 메시지
+                dlg.setIcon(R.drawable.kangaroos); // 아이콘 설정
+//                버튼 클릭시 동작
+                dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        //토스트 메시지
+                        Toast.makeText(WillWrite.this, "유서가 저장되었습니다.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                dlg.show();
+            }
+        });
+        Button button_will_mypage = findViewById(R.id.button_will_mypage);
+        button_will_mypage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MyPage.class);
+                startActivity(intent);
+            }
+        });
 
         findViewById(R.id.action_undo).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -282,28 +318,7 @@ public class WillWrite extends AppCompatActivity {
                 mEditor.insertTodo();
             }
         });
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
 
-        Button button_submit = findViewById(R.id.button_will_submit);
-        button_submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String id = databaseReference.child("Will").push().getKey();
-                databaseReference.child("Will").child(id).child(uid).setValue(new WillItem(date, content,id));
-                Toast.makeText(getApplicationContext(), "유서가 저장되었습니다.", Toast.LENGTH_SHORT).show();
-            }
-        });
-        Button button_will_mypage = findViewById(R.id.button_will_mypage);
-        button_will_mypage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MyPage.class);
-                startActivity(intent);
-            }
-        });
     }
 
 }

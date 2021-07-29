@@ -28,6 +28,14 @@ public class LetterPost extends AppCompatActivity {
         textView_date.setText(date);
         editor.setHtml(content);
         editor.setInputEnabled(false);
-        //이미지 뷰 셋 코드 추가해야 함.
+
+        if (letterNumber == 0) {
+            editor.setBackgroundResource(R.drawable.kangaroo_w);
+        } else if (letterNumber == 1) {
+            editor.setBackgroundResource(R.drawable.kangaroo_y);
+        } else if (letterNumber == 2) {
+            editor.setBackgroundResource(R.drawable.kangaroos_grey);
+        }
+
     }
 }
