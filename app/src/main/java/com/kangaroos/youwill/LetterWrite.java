@@ -69,11 +69,11 @@ public class LetterWrite extends AppCompatActivity {
         paper_type = intent.getExtras().getInt("letterNumber");
 
         if(paper_type == 0){
-            mEditor.setBackgroundResource(R.drawable.kangaroo_w);
+            mEditor.setBackgroundResource(R.drawable.paper1);
         }else if(paper_type == 1){
-            mEditor.setBackgroundResource(R.drawable.kangaroo_y);
+            mEditor.setBackgroundResource(R.drawable.paper2);
         }else if(paper_type == 2){
-            mEditor.setBackgroundResource(R.drawable.kangaroos_grey);
+            mEditor.setBackgroundResource(R.drawable.paper3);
         }
 
         content = "";
