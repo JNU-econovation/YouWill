@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="icons">
-        <item>@drawable/mypage_black</item>
-        <item>@drawable/letter_black</item>
-        <item>@drawable/will_black</item>
-        <item>@drawable/healing_black</item>
+        <item>@drawable/icon_mypage</item>
+        <item>@drawable/icon_letter</item>
+        <item>@drawable/icon_will</item>
+        <item>@drawable/icon_healing</item>
     </array>
     <array name="colors">
         <item>#748E64</item>

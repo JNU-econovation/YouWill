@@ -59,13 +59,10 @@ public class LoginActivity extends AppCompatActivity {
         mLoginBtn = findViewById(R.id.login_btn);
         mEmailText = findViewById(R.id.email_et);
         mPasswordText = findViewById(R.id.password_edt);
-        ImageView ivGlide = findViewById(R.id.imageView_google);
 
-        Glide.with(this)
-                .load("http://goo.gl/gEgYUd")
-                .override(300, 200)
-                .fitCenter()
-                .into(ivGlide);
+
+
+
 
         //이미 로그인이 되어있다면 메인페이지로 바로 이동
         if (firebaseAuth.getCurrentUser() != null) {
